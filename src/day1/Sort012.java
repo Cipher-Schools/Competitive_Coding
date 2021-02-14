@@ -1,3 +1,5 @@
+package day1;
+
 /**
  * Use three pointers
  *

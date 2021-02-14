@@ -1,3 +1,5 @@
+package day1;
+
 /**
  *
  * T.C = O(n)
