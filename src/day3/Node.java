@@ -4,12 +4,15 @@ package day3;
 public class Node {
 
 
-    int data;
+    public int data;
 
-    Node next;
+   public Node next;
 
-    Node(int data) {
+    public Node(int data) {
         this.data = data;
     }
+
+
+    Node random;
 
 }

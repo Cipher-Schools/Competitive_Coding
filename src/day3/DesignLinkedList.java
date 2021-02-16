@@ -10,6 +10,7 @@ public class DesignLinkedList {
             return head;
         }
 
+
         Node rest = reverseLinkedList(head.next);
 
         head.next.next = head;
