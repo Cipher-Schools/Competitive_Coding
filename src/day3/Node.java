@@ -8,6 +8,9 @@ public class Node {
 
    public Node next;
 
+
+   public int min;
+
     public Node(int data) {
         this.data = data;
     }

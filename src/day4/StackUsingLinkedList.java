@@ -10,9 +10,12 @@ public class StackUsingLinkedList {
     public  void push(int element) {
         if(head == null) {
             Node stackElement = new Node(element);
+            stackElement.min = element;
             head = stackElement;
         } else {
             Node stackElement = new Node(element);
+            int min = head.min;
+            stackElement.min = Math.min(min, element);
             stackElement.next = head;
             head = stackElement;
         }
@@ -57,6 +60,10 @@ public class StackUsingLinkedList {
         return poppedElement;
     }
 
+
+    public int getMin() {
+        return head.min;
+    }
 
 
 

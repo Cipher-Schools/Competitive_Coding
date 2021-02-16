@@ -4,42 +4,32 @@ package day3;
 public class DetectAndRemoveLoop {
 
 
-    //TODO
     public static void detectAndRemove(Node head) {
 
-        Node slow, fast;
-
-        slow = head;
-        fast = head;
-
-        fast = fast.next.next;
-        slow = slow.next;
-
-        while(true) {
-
-            if(fast == null || fast.next == null) {
-                //No loop
-                return;
-            } else if(fast == slow || fast.next == slow) {
+        Node fast = head;
+        Node slow = head;
+        boolean isLoopAvailable = false;
+        while (slow != null && fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (slow == fast) {
+                System.out.print("Loop Exists");
+                isLoopAvailable = true;
                 break;
-            } else {
-                fast = fast.next.next;
+            }
+        }
+
+        if (isLoopAvailable) {
+            slow = head;
+            Node prevNode = null;
+            while (slow != fast) {
+                prevNode = fast;
+                fast = fast.next;
                 slow = slow.next;
             }
-
+            System.out.print("Loop Found Node : " + slow.data);
+            prevNode.next = null; //Remove the Loop
         }
-
-        System.out.println(slow.data);
-        fast = head;
-
-        //Infinite loop
-        //TODO - Check Floyd's cycle detection proof
-        while(fast.next != slow.next) {
-            slow = slow.next;
-            fast = fast.next;
-        }
-
-        System.out.println(fast.data);
 
     }
 
