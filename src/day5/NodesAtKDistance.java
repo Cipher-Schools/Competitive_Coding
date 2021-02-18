@@ -7,10 +7,11 @@ public class NodesAtKDistance {
 
     static ArrayList<TreeNode> path = new ArrayList<>();
 
+    //T.C - O(n)
+    //S.C - node to root  path
     public static void printNodesAtKLevel(TreeNode root, int targetNode, int k) {
 
-
-        getPath(root, targetNode);
+        findPath(root, targetNode);
 
       for(TreeNode treeNode : path) {
           System.out.print(treeNode.data +"   ");
@@ -24,7 +25,7 @@ public class NodesAtKDistance {
     }
 
 
-    private  static boolean getPath(TreeNode root, int targetNode) {
+    private  static boolean findPath(TreeNode root, int targetNode) {
 
         if(root == null) {
             return false;
@@ -36,13 +37,13 @@ public class NodesAtKDistance {
         }
 
 
-        boolean isFindLeft = getPath(root.left, targetNode);
+        boolean isFindLeft = findPath(root.left, targetNode);
         if(isFindLeft) {
             path.add(root);
             return true;
         }
 
-        boolean isFindRight = getPath(root.right, targetNode);
+        boolean isFindRight = findPath(root.right, targetNode);
         if(isFindRight) {
             path.add(root);
             return true;
