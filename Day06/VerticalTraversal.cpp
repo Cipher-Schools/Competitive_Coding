@@ -32,3 +32,25 @@ TreeNode * LCA(TreeNode * root, TreeNode *a, TreeNode * b) {
         return (l != NULL? l : r);
     }
 }
+
+void verticalTraversal(TreeNode * root, int level, map<int, vector<int>>& levelNodes) {
+    if (root == NULL) {
+        return;
+    }
+    levelNodes[level].push_back(root->data);
+    verticalTraversal(root->left, level - 1, levelNodes);
+    verticalTraversal(root->right, level + 1, levelNodes);
+}
+
+void verticalTraversal(TreeNode *root) {
+    map<int, vector<int>> levelNodes;
+    verticalTraversal(root, 0, levelNodes);
+    for (auto itr = levelNodes.begin(); itr != levelNodes.end(); itr++) {
+        for (int i = 0; i < itr->second.size(); i++) {
+            cout << itr->second[i] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+// find the vertical level wise sum of a binary tree?
