@@ -5,15 +5,15 @@ import java.util.Scanner;
 
 public class TreeNode {
 
-    int data;
+    public int data;
 
-    TreeNode left;
+    public TreeNode left;
 
-    TreeNode right;
+    public  TreeNode right;
 
     TreeNode next;
 
-    TreeNode(int data) {
+    public TreeNode(int data) {
         this.data = data;
     }
 
