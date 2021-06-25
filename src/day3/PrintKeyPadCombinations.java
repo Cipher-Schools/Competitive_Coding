@@ -25,7 +25,7 @@ public class PrintKeyPadCombinations {
         return null;
     }
 
-    public static ArrayList<String> getAllCombinations(String input) {  //""
+    private static ArrayList<String> helper(String input) {
 
 
         if(input.length() == 0) {
@@ -50,13 +50,24 @@ public class PrintKeyPadCombinations {
         }
 
         return ans;
+    }
 
+
+    public static ArrayList<String> getAllCombinations(String input) {
+
+        if(input.length() == 0) {
+            return new ArrayList<>();
+        }
+
+        return  helper(input);
     }
 
 
     public static void main(String[] args) {
 
         ArrayList<String> ans = getAllCombinations("123");
+
+
 
         for(String combination : ans) {
             System.out.println(combination);
