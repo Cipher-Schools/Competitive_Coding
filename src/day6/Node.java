@@ -3,11 +3,20 @@ package day6;
 
 public class Node {
 
-    int data;
-    Node next;
+    public  int data;
+    public Node next;
+    public Node random;
 
-    Node(int data) {
+    public Node(int data) {
         this.data = data;
     }
 
+
+    public int getData() {
+        return data;
+    }
+
+    public Node getNext() {
+        return next;
+    }
 }
