@@ -66,12 +66,15 @@ public class SplitWise {
             int minAmountIdx = minimum(netAmount, n);
             int maxAmountIdx = maximum(netAmount, n);
 
+            //If  reciever wants more money than sender has
             if (netAmount[maxAmountIdx] > Math.abs(netAmount[minAmountIdx]))
             {
                 answer[minAmountIdx][maxAmountIdx] = Math.abs(netAmount[minAmountIdx]);
                 netAmount[maxAmountIdx] = netAmount[maxAmountIdx] - Math.abs(netAmount[minAmountIdx]);
                 netAmount[minAmountIdx] = 0;
             }
+
+            //If reciever wants less money than sender wants to send
             else if (netAmount[maxAmountIdx] < Math.abs(netAmount[minAmountIdx]))
             {
                 answer[minAmountIdx][maxAmountIdx] = netAmount[maxAmountIdx];
@@ -94,6 +97,23 @@ public class SplitWise {
 
 
     public static void main(String[] args) {
+
+
+        int [][] matrix = { {0, 100, 0, 200},
+               { 0, 0, 300, 0},
+                {0 ,0, 0, 200},
+                {0 ,0 ,0, 0}};
+
+        int[][] answer = minCashFlow(matrix, 4);
+
+
+        for(int i = 0; i < answer.length; i++) {
+            for(int j = 0; j < answer[0].length; j++) {
+                System.out.print(answer[i][j] +  "  ");
+            }
+            System.out.println();
+        }
+
 
     }
 }
